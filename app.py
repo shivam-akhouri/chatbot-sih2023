@@ -196,33 +196,31 @@ def bot():
         step = 2
         c = 1
     elif step == 1 and "2" in incoming_msg:
-        msg.body('''You have selected first aid help. What would you be requiring?\n
-                 1. Contact an on-call doctor\n2. Require medicines immediately''')
+        msg.body('''You have selected first aid help. What would you be requiring?\n1. Contact an on-call doctor\n2. Require medicines immediately''')
         step = 2
         c = 2
-    elif step == 2:
-        if c == 1 and "1" in incoming_msg:
-            msg.body('''You are within 5km of the nearest hospital. Please stay on the line while we arrange an ambulance for you.''')
-            time.sleep(5)
-            msg.body('''An ambulance has been arranged, and will reach you at the earliest.''')
-            step = 3
-        elif c == 1 and "2" in incoming_msg:
-            msg.body('''You are between 5km and 20km of the nearest hospital. Please stay on the line while we arrange an ambulance for you.''')
-            time.sleep(5)
-            msg.body('''An ambulance has been arranged, and will reach you at the earliest.''')
-            step = 3
-        elif c == 1 and "3" in incoming_msg:
-            msg.body('''You are farther than 20km of the nearest hospital. Please stay on the line while we arrange an ambulance for you. Do call 112 
-                     if the wait time is too long and the patient's condition is deteriorating''')
-            time.sleep(5)
-            msg.body('''An ambulance has been arranged, and will reach you at the earliest.''')
-            step = 3
-        elif c == 2 and "1" in incoming_msg:
-            msg.body('''A general physician is available. Contact xxxxxxxxxx now''')
-            step = 3
-        elif c == 2 and "2" in incoming_msg:
-            msg.body('''Here is your nearest pharmacy's contact : xxxxxxxxxx''')
-            step = 3
+    elif "a." in incoming_msg:
+        msg.body('''You are within 5km of the nearest hospital. Please stay on the line while we arrange an ambulance for you.''')
+        time.sleep(5)
+        msg.body('''An ambulance has been arranged, and will reach you at the earliest.''')
+        step = 3
+    elif "b" in incoming_msg:
+        msg.body('''You are between 5km and 20km of the nearest hospital. Please stay on the line while we arrange an ambulance for you.''')
+        time.sleep(5)
+        msg.body('''An ambulance has been arranged, and will reach you at the earliest.''')
+        step = 3
+    elif "c" in incoming_msg:
+        msg.body('''You are farther than 20km of the nearest hospital. Please stay on the line while we arrange an ambulance for you. Do call 112 
+                    if the wait time is too long and the patient's condition is deteriorating''')
+        time.sleep(5)
+        msg.body('''An ambulance has been arranged, and will reach you at the earliest.''')
+        step = 3
+    elif "i" in incoming_msg:
+        msg.body('''A general physician is available. Contact xxxxxxxxxx now''')
+        step = 3
+    elif "ii" in incoming_msg:
+        msg.body('''Here is your nearest pharmacy's contact : xxxxxxxxxx''')
+        step = 3
     if step==3:
         msg.body("Thank you for your patience. Hope your problem was resolved to the best ability")
     
