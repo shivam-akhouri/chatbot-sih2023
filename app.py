@@ -167,6 +167,10 @@ def answer_patient_query(instructions,  previous_questions_and_answers, new_ques
 
 app = Flask(__name__)
 
+@app.route("/")
+def greet():
+    return "Hello World"
+
 @app.route('/chat')
 def hello_world():
     print(os.environ.get("openapi"))
