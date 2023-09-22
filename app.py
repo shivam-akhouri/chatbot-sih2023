@@ -173,7 +173,7 @@ def greet():
 
 @app.route('/chat')
 def hello_world():
-    print(os.environ.get("openapi"))
+    print(os.getenv("openapi"))
     query = request.args['query']
     if ("book appointment"  or "appointment" or "book" or "schedule" in query):
         res = bookappointment(query)
