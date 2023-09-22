@@ -3,8 +3,10 @@ import openai
 import json
 import requests
 import os
+from dotenv import load_dotenv
+load_dotenv("/etc/secrets/openapi")
 
-openai.api_key = os.environ.get("openapi")
+openai.api_key = os.getenv("openapi")
 
 # slots = [
 #     Slot(
@@ -167,6 +169,7 @@ app = Flask(__name__)
 
 @app.route('/chat')
 def hello_world():
+    print(os.environ.get("openapi"))
     query = request.args['query']
     if ("book appointment"  or "appointment" or "book" or "schedule" in query):
         res = bookappointment(query)
