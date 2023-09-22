@@ -168,13 +168,14 @@ def answer_patient_query(instructions,  previous_questions_and_answers, new_ques
     return completion.choices[0].message.content
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = os.getenv("twiliokey")
 @app.route("/")
 def greet():
     return "Hello World"
 
 @app.route('/bot', methods=['POST'])
 def bot():
+    print(os.getenv("twiliokey"))
     incoming_msg = request.values.get('Body', '').lower()
     resp = MessagingResponse()
     msg = resp.message()
