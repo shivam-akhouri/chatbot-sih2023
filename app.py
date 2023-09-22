@@ -187,19 +187,17 @@ def bot():
     step = session['step']
     c = 0
     if "help" in incoming_msg.lower():
-        msg.body('''Greetings. Welcome to the emergency bot interface. How may I help you?\n1.Immediate ambulance arrangement.\n
-                 2. First aid help''')
+        msg.body('''Greetings. Welcome to the emergency bot interface. How may I help you?\n1.Immediate ambulance arrangement.\n2. First aid help''')
         step=1
     elif step == 1 and "1" in incoming_msg:
-        msg.body('''You have selected immediate ambulance arrangement. How far is the nearest hospital from your location?\n
-                 1. <5km\n2. 5km-20km\n3. >20km''')
+        msg.body('''You have selected immediate ambulance arrangement. How far is the nearest hospital from your location?\n\n\na. <5km\n2. bkm-20km\nc. >20km''')
         step = 2
         c = 1
     elif step == 1 and "2" in incoming_msg:
         msg.body('''You have selected first aid help. What would you be requiring?\n1. Contact an on-call doctor\n2. Require medicines immediately''')
         step = 2
         c = 2
-    elif "a." in incoming_msg:
+    elif "a" in incoming_msg:
         msg.body('''You are within 5km of the nearest hospital. Please stay on the line while we arrange an ambulance for you.''')
         time.sleep(5)
         msg.body('''An ambulance has been arranged, and will reach you at the earliest.''')
