@@ -190,37 +190,37 @@ def bot():
         msg.body('''Greetings. Welcome to the emergency bot interface. How may I help you?\n1.Immediate ambulance arrangement.\n
                  2. First aid help''')
         session['step'] = 1
-    elif step == 1 and incoming_msg == "1":
+    elif step == 1 and "1" in incoming_msg:
         msg.body('''You have selected immediate ambulance arrangement. How far is the nearest hospital from your location?\n
                  1. <5km\n2. 5km-20km\n3. >20km''')
         session['step'] = 2
         c = 1
-    elif step == 1 and incoming_msg == "2":
+    elif step == 1 and "2" in incoming_msg:
         msg.body('''You have selected first aid help. What would you be requiring?\n
                  1. Contact an on-call doctor\n2. Require medicines immediately''')
         session['step'] = 2
         c = 2
     elif step == 2:
-        if c == 1 and incoming_msg == "1":
+        if c == 1 and "1" in incoming_msg:
             msg.body('''You are within 5km of the nearest hospital. Please stay on the line while we arrange an ambulance for you.''')
             time.sleep(5)
             msg.body('''An ambulance has been arranged, and will reach you at the earliest.''')
             session['step'] = 3
-        elif c == 1 and incoming_msg == "2":
+        elif c == 1 and "2" in incoming_msg:
             msg.body('''You are between 5km and 20km of the nearest hospital. Please stay on the line while we arrange an ambulance for you.''')
             time.sleep(5)
             msg.body('''An ambulance has been arranged, and will reach you at the earliest.''')
             session['step'] = 3
-        elif c == 1 and incoming_msg == "3":
+        elif c == 1 and "3" in incoming_msg:
             msg.body('''You are farther than 20km of the nearest hospital. Please stay on the line while we arrange an ambulance for you. Do call 112 
                      if the wait time is too long and the patient's condition is deteriorating''')
             time.sleep(5)
             msg.body('''An ambulance has been arranged, and will reach you at the earliest.''')
             session['step'] = 3
-        elif c == 2 and incoming_msg == "1":
+        elif c == 2 and "1" in incoming_msg:
             msg.body('''A general physician is available. Contact xxxxxxxxxx now''')
             session['step'] = 3
-        elif c == 2 and incoming_msg == "2":
+        elif c == 2 and "2" in incoming_msg:
             msg.body('''Here is your nearest pharmacy's contact : xxxxxxxxxx''')
             session['step'] = 3
     if step==3:
