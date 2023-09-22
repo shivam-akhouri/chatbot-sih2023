@@ -190,6 +190,7 @@ def bot():
         msg.body('''Greetings. Welcome to the emergency bot interface. How may I help you?\n1.Immediate ambulance arrangement.\n
                  2. First aid help''')
         session['step'] = 1
+        step=1
     elif step == 1 and "1" in incoming_msg:
         msg.body('''You have selected immediate ambulance arrangement. How far is the nearest hospital from your location?\n
                  1. <5km\n2. 5km-20km\n3. >20km''')
