@@ -1,4 +1,4 @@
 Flask==2.2.5
 openai==0.28.0
 gunicorn==19.7.1
-dotenv
+python-dotenv==1.0.0
