@@ -205,25 +205,25 @@ def bot():
             msg.body('''You are within 5km of the nearest hospital. Please stay on the line while we arrange an ambulance for you.''')
             time.sleep(5)
             msg.body('''An ambulance has been arranged, and will reach you at the earliest.''')
-            session['step'] = 4
+            session['step'] = 3
         elif c == 1 and incoming_msg == "2":
             msg.body('''You are between 5km and 20km of the nearest hospital. Please stay on the line while we arrange an ambulance for you.''')
             time.sleep(5)
             msg.body('''An ambulance has been arranged, and will reach you at the earliest.''')
-            session['step'] = 4
+            session['step'] = 3
         elif c == 1 and incoming_msg == "3":
             msg.body('''You are farther than 20km of the nearest hospital. Please stay on the line while we arrange an ambulance for you. Do call 112 
                      if the wait time is too long and the patient's condition is deteriorating''')
             time.sleep(5)
             msg.body('''An ambulance has been arranged, and will reach you at the earliest.''')
-            session['step'] = 4
+            session['step'] = 3
         elif c == 2 and incoming_msg == "1":
             msg.body('''A general physician is available. Contact xxxxxxxxxx now''')
-            session['step'] = 4
+            session['step'] = 3
         elif c == 2 and incoming_msg == "2":
             msg.body('''Here is your nearest pharmacy's contact : xxxxxxxxxx''')
-            session['step'] = 4
-    if step==4:
+            session['step'] = 3
+    if step==3:
         msg.body("Thank you for your patience. Hope your problem was resolved to the best ability")
     
     return str(resp)
