@@ -1,11 +1,10 @@
 from flask import Flask, request, jsonify
 import openai
 import json
-from colorama import Fore, Style
-import os
 import requests
+import os
 
-openai.api_key = "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"
+openai.api_key = os.environ.get("openapi")
 
 # slots = [
 #     Slot(
